@@ -1,0 +1,11 @@
+{
+    "hash": "b2aacc874b875d3a11c071361e831044",
+    "packages": [
+        {
+            "package": "TrafficCophp/ByteBuffer",
+            "version": "dev-master",
+            "source-reference": "426e18e26fe98ed3d9f98c576dd51bc781a891b6"
+        }
+    ],
+    "aliases": []
+}

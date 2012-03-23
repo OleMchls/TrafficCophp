@@ -1,0 +1,22 @@
+{
+    "name": "nesQuick/TrafficCophp",
+    "type": "library",
+    "description": "PHP Client for Traffic Cop messsage queue.",
+    "keywords": ["Traffic Cop", "MQ", "Client"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ole 'nesQuick' Michaelis",
+            "email": "ole.michaelis@googlemail.com",
+            "homepage": "http://www.codestars.eu"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "TrafficCophp": "src/"
+        }
+    },
+    "require": {
+		"TrafficCophp/ByteBuffer": "dev-master"
+	}
+}
