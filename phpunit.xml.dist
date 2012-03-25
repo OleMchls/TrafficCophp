@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    	xsi:noNamespaceSchemaLocation="http://gooh.github.com/phpunit-schema/3.7/phpunit.xsd"
-		backupGlobals="false"
-		backupStaticAttributes="false"
-		bootstrap="vendor/.composer/autoload.php"
-		colors="true">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://gooh.github.com/phpunit-schema/3.7/phpunit.xsd"
+	backupGlobals="false"
+	backupStaticAttributes="false"
+	bootstrap="vendor/.composer/autoload.php"
+	colors="true">
+
+	<!--<php>
+		<env name="traffic_cop_host" value="127.0.0.1" />
+		<env name="traffic_cop_port" value="3542" />
+	</php>-->
 
 	<testsuites>
-		<testsuite name="TrafficCoPHP Test Suite">
-			<directory suffix="Test.php">./tests/TrafficCophp/</directory>
+		<testsuite name="TrafficCoPHP UnitTests Suite">
+			<directory suffix="Test.php">./tests/TrafficCophp/Tests/Unit/</directory>
 		</testsuite>
+		<!--<testsuite name="TrafficCoPHP IntegrationTests Suite">
+			<directory suffix="Test.php">./tests/Integration/</directory>
+		</testsuite>-->
 	</testsuites>
 
 </phpunit>
