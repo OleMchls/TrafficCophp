@@ -2,9 +2,6 @@
 
 namespace TrafficCophp\Network;
 
-/**
- * Description of Exception
- *
- * @author ole
- */
-class Exception extends \Exception {}
+use TrafficCophp\Exception\TrafficCophpException;
+
+class Exception extends TrafficCophpException {}
