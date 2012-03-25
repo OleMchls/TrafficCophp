@@ -10,7 +10,7 @@ use TrafficCophp\ByteBuffer\ByteBuffer;
  *
  * @author ole
  */
-class PublisherMessage extends AbstractPublisherMessage {
+class PublishMessage extends AbstractPublishMessage {
 
 	const TYPE = 0x1;
 

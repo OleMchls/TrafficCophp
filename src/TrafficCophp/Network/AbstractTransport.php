@@ -2,7 +2,7 @@
 
 namespace TrafficCophp\Network;
 
-use TrafficCophp\Message\AbstractPublisherMessage;
+use TrafficCophp\Message\AbstractPublishMessage;
 
 /**
  * Description of AbstractTransport
@@ -12,7 +12,7 @@ use TrafficCophp\Message\AbstractPublisherMessage;
 abstract class AbstractTransport {
 
 	abstract public function __construct($host, $port);
-	abstract public function send(AbstractPublisherMessage $message);
+	abstract public function send(AbstractPublishMessage $message);
 	abstract public function receive($bytes);
 
 }

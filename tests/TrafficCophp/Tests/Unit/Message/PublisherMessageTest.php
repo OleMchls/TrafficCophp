@@ -2,7 +2,7 @@
 
 namespace TrafficCophp\Tests\Unit\Message;
 
-use TrafficCophp\Message\PublisherMessage;
+use TrafficCophp\Message\PublishMessage;
 use TrafficCophp\ByteBuffer\ByteBuffer;
 
 /**
@@ -10,16 +10,16 @@ use TrafficCophp\ByteBuffer\ByteBuffer;
  *
  * @author ole
  */
-class PublisherMessageTest extends \PHPUnit_Framework_TestCase {
+class PublishMessageTest extends \PHPUnit_Framework_TestCase {
 
 	public function testGetChannel() {
-		$publisherMsg = new PublisherMessage('channel', 'message');
-		$this->assertEquals('channel', $publisherMsg->getChannel());
+		$msg = new PublishMessage('channel', 'message');
+		$this->assertEquals('channel', $msg->getChannel());
 	}
 
 	public function testGetMessage() {
-		$publisherMsg = new PublisherMessage('channel', 'message');
-		$this->assertEquals('message', $publisherMsg->getMessage());
+		$msg = new PublishMessage('channel', 'message');
+		$this->assertEquals('message', $msg->getMessage());
 	}
 
 	public function testGetProtokollString() {
@@ -33,13 +33,13 @@ class PublisherMessageTest extends \PHPUnit_Framework_TestCase {
 		$buffer->write($channel, 9);
 		$buffer->write($message, 9 + strlen($channel));
 
-		$publisherMsg = new PublisherMessage($channel, $message);
-		$this->assertEquals((string) $buffer, $publisherMsg->getProtokollString());
+		$msg = new PublishMessage($channel, $message);
+		$this->assertEquals((string) $buffer, $msg->getProtokollString());
 	}
 
 	public function testGetLength() {
-		$publisherMsg = new PublisherMessage('channel', 'message');
-		$this->assertEquals(23, $publisherMsg->getLength());
+		$msg = new PublishMessage('channel', 'message');
+		$this->assertEquals(23, $msg->getLength());
 	}
 
 }

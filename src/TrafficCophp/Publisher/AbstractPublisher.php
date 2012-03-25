@@ -3,7 +3,7 @@
 namespace TrafficCophp\Publisher;
 
 use TrafficCophp\Network\AbstractTransport;
-use TrafficCophp\Message\AbstractPublisherMessage;
+use TrafficCophp\Message\AbstractPublishMessage;
 
 /**
  * Description of AbstractPublisher
@@ -13,6 +13,6 @@ use TrafficCophp\Message\AbstractPublisherMessage;
 abstract class AbstractPublisher {
 
 	abstract public function __construct(AbstractTransport $transport);
-	abstract public function publish(AbstractPublisherMessage $message);
+	abstract public function publish(AbstractPublishMessage $message);
 
 }

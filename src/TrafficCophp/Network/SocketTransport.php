@@ -4,7 +4,7 @@ namespace TrafficCophp\Network;
 
 use TrafficCophp\Network\AbstractTransport;
 use TrafficCophp\Network\Exception as NetworkException;
-use TrafficCophp\Message\AbstractPublisherMessage;
+use TrafficCophp\Message\AbstractPublishMessage;
 
 /**
  * Description of SocketTransport
@@ -26,7 +26,7 @@ class SocketTransport extends AbstractTransport {
 
 	}
 
-	public function send(AbstractPublisherMessage $message) {
+	public function send(AbstractPublishMessage $message) {
 		if (!$this->isConnected()) {
 			$this->connect();
 		}

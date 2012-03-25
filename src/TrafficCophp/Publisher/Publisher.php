@@ -3,7 +3,7 @@
 namespace TrafficCophp\Publisher;
 
 use TrafficCophp\Network\AbstractTransport;
-use TrafficCophp\Message\AbstractPublisherMessage;
+use TrafficCophp\Message\AbstractPublishMessage;
 
 /**
  * Description of Publisher
@@ -21,7 +21,7 @@ class Publisher extends AbstractPublisher {
 		$this->transport = $transport;
 	}
 
-	public function publish(AbstractPublisherMessage $message) {
+	public function publish(AbstractPublishMessage $message) {
 		$this->transport->send($message);
 	}
 

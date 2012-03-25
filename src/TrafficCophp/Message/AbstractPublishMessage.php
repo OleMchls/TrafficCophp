@@ -9,7 +9,7 @@ use TrafficCophp\Message\AbstractMessage;
  *
  * @author ole
  */
-abstract class AbstractPublisherMessage extends AbstractMessage {
+abstract class AbstractPublishMessage extends AbstractMessage {
 
 	abstract public function __construct($channel, $message);
 	abstract public function getProtokollString();
