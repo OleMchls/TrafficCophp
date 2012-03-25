@@ -9,7 +9,7 @@ namespace TrafficCophp\Message;
  */
 abstract class AbstractMessage {
 
-	abstract public function getChannel();
-	abstract public function getMessage();
+	abstract public function getProtokollString();
+	abstract public function getLength();
 
 }

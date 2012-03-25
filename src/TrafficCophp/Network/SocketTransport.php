@@ -2,15 +2,9 @@
 
 namespace TrafficCophp\Network;
 
-use TrafficCophp\Network\AbstractTransport;
 use TrafficCophp\Network\Exception as NetworkException;
 use TrafficCophp\Message\AbstractPublishMessage;
 
-/**
- * Description of SocketTransport
- *
- * @author ole
- */
 class SocketTransport extends AbstractTransport {
 
 	protected $host;

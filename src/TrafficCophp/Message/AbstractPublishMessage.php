@@ -2,7 +2,7 @@
 
 namespace TrafficCophp\Message;
 
-use TrafficCophp\Message\AbstractMessage;
+use TrafficCophp\Channel\Channel;
 
 /**
  * Description of AbstractMessage
@@ -11,8 +11,8 @@ use TrafficCophp\Message\AbstractMessage;
  */
 abstract class AbstractPublishMessage extends AbstractMessage {
 
-	abstract public function __construct($channel, $message);
-	abstract public function getProtokollString();
-	abstract public function getLength();
+	abstract public function __construct(Channel $channel, $message);
+	abstract public function getChannel();
+	abstract public function getMessage();
 
 }
