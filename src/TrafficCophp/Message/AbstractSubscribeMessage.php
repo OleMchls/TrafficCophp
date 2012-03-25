@@ -13,7 +13,5 @@ use TrafficCophp\Channel\Channel;
 abstract class AbstractSubscribeMessage extends AbstractMessage {
 
 	abstract public function __construct(ChannelCollection $channels);
-	abstract public function addChannel(Channel $channel);
-
 
 }
