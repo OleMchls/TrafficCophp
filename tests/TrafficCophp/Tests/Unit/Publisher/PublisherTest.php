@@ -15,7 +15,7 @@ class PublisherTest extends \PHPUnit_Framework_TestCase  {
 		$transportMock = $this->getMockBuilder('TrafficCophp\\Network\\SocketTransport')->setConstructorArgs(array('127.0.0.1', 1337))->getMock();
 		$transportMock->expects($this->once())->method('send');
 
-		$messageMock = $this->getMockBuilder('TrafficCophp\Message\PublishMessage')->disableOriginalConstructor()->getMock();
+		$messageMock = $this->getMockBuilder('TrafficCophp\\Message\\PublishMessage')->disableOriginalConstructor()->getMock();
 
 		$publisher = new Publisher($transportMock);
 		$publisher->publish($messageMock);

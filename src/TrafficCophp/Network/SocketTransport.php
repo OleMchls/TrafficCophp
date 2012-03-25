@@ -3,7 +3,7 @@
 namespace TrafficCophp\Network;
 
 use TrafficCophp\Network\Exception as NetworkException;
-use TrafficCophp\Message\AbstractPublishMessage;
+use TrafficCophp\Message\AbstractMessage;
 
 class SocketTransport extends AbstractTransport {
 
@@ -20,7 +20,7 @@ class SocketTransport extends AbstractTransport {
 
 	}
 
-	public function send(AbstractPublishMessage $message) {
+	public function send(AbstractMessage $message) {
 		if (!$this->isConnected()) {
 			$this->connect();
 		}
