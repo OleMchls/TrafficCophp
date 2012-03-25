@@ -2,18 +2,29 @@
 
 namespace TrafficCophp\Channel;
 
-class ChannelCollection extends \SplObjectStorage {
+class ChannelCollection extends AbstractChannelCollection {
 
-	public function attach(Channel $object, $data = null) {
-		parent::attach($object, $data);
+	/**
+	 * @var \SplObjectStorage
+	 */
+	protected $collection;
+	protected $channelNames;
+
+	public function __construct() {
+		$this->collection = new \SplObjectStorage();
+		$this->channelNames = array();
 	}
 
-	public function detach(Channel $object) {
-		parent::detach($object);
+	public function addChannel(Channel $channel) {
+		if (isset($this->channelNames[$channel->getName()])) {
+			return;
+		}
+		$this->channelNames[$channel->getName()] = true;
+		$this->collection->attach($channel);
 	}
 
-	public function contains(Channel $object) {
-		parent::contains($object);
+	public function getChannels() {
+		return $this->collection;
 	}
 
 }
