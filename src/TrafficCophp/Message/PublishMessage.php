@@ -3,7 +3,7 @@
 namespace TrafficCophp\Message;
 
 use TrafficCophp\Channel\Channel;
-use TrafficCophp\ByteBuffer\ByteBuffer;
+use TrafficCophp\ByteBuffer\Buffer;
 
 /**
  * Description of PublisherMessage
@@ -21,14 +21,14 @@ class PublishMessage extends AbstractPublishMessage {
 	protected $message;
 
 	/**
-	 * @var ByteBuffer
+	 * @var Buffer
 	 */
 	protected $buffer;
 
 	public function __construct(Channel $channel, $message) {
 		$this->channel = $channel;
 		$this->message = $message;
-		$this->buffer = new ByteBuffer(4 + 1 + 4 + strlen($channel->getName()) + strlen($message));
+		$this->buffer = new Buffer(4 + 1 + 4 + strlen($channel->getName()) + strlen($message));
 	}
 
 	/**

@@ -4,7 +4,7 @@ namespace TrafficCophp\Tests\Unit\Message;
 
 use TrafficCophp\Message\PublishMessage;
 use TrafficCophp\Channel\Channel;
-use TrafficCophp\ByteBuffer\ByteBuffer;
+use TrafficCophp\ByteBuffer\Buffer;
 
 /**
  * Description of runTest
@@ -29,7 +29,7 @@ class PublishMessageTest extends \PHPUnit_Framework_TestCase {
 		$channel = new Channel('channel');
 		$message = 'php';
 
-		$buffer = new ByteBuffer(4 + 1 + 4 + strlen($channel->getName()) + strlen($message));
+		$buffer = new Buffer(4 + 1 + 4 + strlen($channel->getName()) + strlen($message));
 		$buffer->writeInt32BE($buffer->length() - 4, 0);
 		$buffer->writeInt8(0x1, 4);
 		$buffer->writeInt32BE(strlen($channel->getName()), 5);

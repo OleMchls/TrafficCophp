@@ -5,7 +5,7 @@ namespace TrafficCophp\Tests\Unit\Message;
 use TrafficCophp\Channel\ChannelCollection;
 use TrafficCophp\Message\SubscribeMessage;
 
-use TrafficCophp\ByteBuffer\ByteBuffer;
+use TrafficCophp\ByteBuffer\Buffer;
 
 class SubsriceMessageTest extends \PHPUnit_Framework_TestCase {
 
@@ -24,7 +24,7 @@ class SubsriceMessageTest extends \PHPUnit_Framework_TestCase {
 		$msg = new SubscribeMessage($channels);
 
 		$raw_channel_string = 'channel_one,channel_two';
-		$buf = new ByteBuffer(4 + 1 + 4 + strlen($raw_channel_string));
+		$buf = new Buffer(4 + 1 + 4 + strlen($raw_channel_string));
 		$buf->writeInt32BE($buf->length() - 4, 0);
 		$buf->writeInt8(0x2, 4);
 		$buf->writeInt32BE(strlen($raw_channel_string), 5);

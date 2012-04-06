@@ -4,7 +4,7 @@ namespace TrafficCophp\Message;
 
 use TrafficCophp\Channel\ChannelCollection;
 use TrafficCophp\Channel\Channel;
-use TrafficCophp\ByteBuffer\ByteBuffer;
+use TrafficCophp\ByteBuffer\Buffer;
 
 /**
  * Description of SubscribeMessage
@@ -27,7 +27,7 @@ class SubscribeMessage extends AbstractSubscribeMessage {
 
 	public function __construct(ChannelCollection $channels) {
 		$this->channels = $channels;
-		$this->buffer = new ByteBuffer(4 + 1 + 4 + strlen($this->getChannelListString()));
+		$this->buffer = new Buffer(4 + 1 + 4 + strlen($this->getChannelListString()));
 	}
 
 	public function getLength() {
