@@ -17,7 +17,7 @@ class SocketTransport extends AbstractTransport {
 	}
 
 	public function receive($bytes) {
-
+		return socket_read($this->resource, $bytes, PHP_BINARY_READ);
 	}
 
 	public function send(AbstractMessage $message) {

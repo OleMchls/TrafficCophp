@@ -3,6 +3,7 @@
 namespace TrafficCophp\Tests\Unit\Subscriber;
 
 use TrafficCophp\Subscriber\Subscriber;
+use TrafficCophp\ByteBuffer\Buffer;
 
 class SubscriberTest extends \PHPUnit_Framework_TestCase {
 
@@ -31,6 +32,45 @@ class SubscriberTest extends \PHPUnit_Framework_TestCase {
 
 		$messageMock = $this->getMockBuilder('TrafficCophp\\Message\\SubscribeMessage')->disableOriginalConstructor()->getMock();
 		$subscriber->subscribe($messageMock);
+	}
+
+	public function testReceiveWithoutRegister() {
+		$subscriber = new Subscriber($this->getTransportMock());
+
+		$this->setExpectedException('\TrafficCophp\Subscriber\NoSubscriptionException');
+		$message = $subscriber->receive();
+	}
+
+	public function testSingleReceive() {
+		$transportMock = $this->getTransportMock();
+		$transportMock->expects($this->exactly(1))->method('send');
+
+		$channel = 'channel_one';
+		$message = 'message';
+
+		$buffer = new Buffer(4 + 11 + 7);
+		$buffer->writeInt32BE(strlen($channel), 0);
+		$buffer->write($channel, 4);
+		$buffer->write($message, 4+strlen($channel));
+
+		// Create a map of arguments to return values.
+		$map = array(
+			array(4, 26),
+			array(22, (string) $buffer)
+		);
+		$transportMock->expects($this->exactly(2))->method('receive')->will($this->returnValueMap($map));
+
+		$subscriber = new Subscriber($transportMock);
+
+		$messageMock = $this->getMockBuilder('TrafficCophp\\Message\\SubscribeMessage')->disableOriginalConstructor()->getMock();
+		$subscriber->subscribe($messageMock);
+
+		$serverMessage = $subscriber->receive();
+		$this->assertSame($message, $serverMessage->getMessage());
+		foreach ($serverMessage->getAddressedChannels()->getChannels() as $channelObj) {
+			/* @var $channel \TrafficCophp\Channel\Channel */
+			$this->assertSame($channel, $channelObj->getName());
+		}
 	}
 
 }
