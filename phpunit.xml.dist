@@ -21,4 +21,10 @@
 		</testsuite>-->
 	</testsuites>
 
+	<filter>
+		<whitelist>
+			<directory>./src/TrafficCophp/</directory>
+		</whitelist>
+	</filter>
+
 </phpunit>
