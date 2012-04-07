@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/vendor/.composer/autoload.php';
+require __DIR__ . '/../vendor/.composer/autoload.php';
 
 use TrafficCophp\Network\SocketTransport;
 use TrafficCophp\Publisher\Publisher;
