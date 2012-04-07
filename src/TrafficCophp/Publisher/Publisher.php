@@ -5,11 +5,6 @@ namespace TrafficCophp\Publisher;
 use TrafficCophp\Network\AbstractTransport;
 use TrafficCophp\Message\AbstractPublishMessage;
 
-/**
- * Description of Publisher
- *
- * @author ole
- */
 class Publisher extends AbstractPublisher {
 
 	/**

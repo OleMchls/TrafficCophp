@@ -4,11 +4,6 @@ namespace TrafficCophp\Network;
 
 use TrafficCophp\Message\AbstractMessage;
 
-/**
- * Description of AbstractTransport
- *
- * @author ole
- */
 abstract class AbstractTransport {
 
 	abstract public function __construct($host, $port);

@@ -6,11 +6,6 @@ use TrafficCophp\Channel\ChannelCollection;
 use TrafficCophp\Channel\Channel;
 use TrafficCophp\ByteBuffer\Buffer;
 
-/**
- * Description of SubscribeMessage
- *
- * @author ole
- */
 class SubscribeMessage extends AbstractSubscribeMessage {
 
 	const TYPE = 0x2;

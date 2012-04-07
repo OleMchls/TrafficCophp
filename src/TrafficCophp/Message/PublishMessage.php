@@ -5,11 +5,6 @@ namespace TrafficCophp\Message;
 use TrafficCophp\Channel\Channel;
 use TrafficCophp\ByteBuffer\Buffer;
 
-/**
- * Description of PublisherMessage
- *
- * @author ole
- */
 class PublishMessage extends AbstractPublishMessage {
 
 	const TYPE = 0x1;

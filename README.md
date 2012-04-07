@@ -44,7 +44,6 @@ while (true) {
 
 ## ToDo's
 
-* remove old ide docs
 * write php doc
 * cleanup use statements
 * refactor channel collection

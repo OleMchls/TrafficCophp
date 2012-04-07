@@ -4,11 +4,6 @@ namespace TrafficCophp\Channel;
 
 use TrafficCophp\Channel\Channel;
 
-/**
- * Description of AbstractChannelCollection
- *
- * @author ole
- */
 abstract class AbstractChannelCollection {
 
 	abstract public function addChannel(Channel $channel);
