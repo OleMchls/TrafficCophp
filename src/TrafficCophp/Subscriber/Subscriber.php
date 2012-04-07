@@ -4,7 +4,7 @@ namespace TrafficCophp\Subscriber;
 
 use TrafficCophp\Network\AbstractTransport;
 use TrafficCophp\Message\AbstractSubscribeMessage;
-use TrafficCophp\Message\ServerMessage;
+use TrafficCophp\Message\AbstractServerMessage;
 
 use TrafficCophp\ByteBuffer\Buffer;
 
@@ -26,12 +26,13 @@ class Subscriber extends AbstractSubscriber {
 	 *
 	 * @return \TrafficCophp\Message\ServerMessage
 	 */
-	public function receive() {
+	public function receive(AbstractServerMessage $message) {
 		if (!$this->isRegistered()) {
 			throw new NoSubscriptionException('Youre not subscribed on a channel!');
 		}
 		$messagelength = $this->transport->receive(4);
-		return new ServerMessage($this->transport->receive($messagelength - 4));
+		$message->parse($this->transport->receive($messagelength - 4));
+		return $message;
 	}
 
 	public function subscribe(AbstractSubscribeMessage $message) {

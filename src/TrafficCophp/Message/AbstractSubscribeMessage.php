@@ -10,7 +10,7 @@ use TrafficCophp\Channel\Channel;
  *
  * @author ole
  */
-abstract class AbstractSubscribeMessage extends AbstractMessage {
+abstract class AbstractSubscribeMessage extends AbstractSendMessage {
 
 	abstract public function __construct(ChannelCollection $channels);
 

@@ -11,8 +11,10 @@ class ChannelTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals('channel_one', $channel->getName());
 	}
 
+	/**
+	 * @expectedException TrafficCophp\Channel\InvalidChannelNameException
+	 */
 	public function testInvalidName() {
-		$this->setExpectedException('TrafficCophp\\Channel\\InvalidChannelNameException');
 		$channel = new Channel('channel,one');
 	}
 

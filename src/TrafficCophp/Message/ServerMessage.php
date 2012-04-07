@@ -9,7 +9,6 @@ use TrafficCophp\ByteBuffer\Buffer;
 
 class ServerMessage extends AbstractServerMessage {
 
-	protected $raw;
 	protected $parsed = false;
 
 	/**
@@ -18,35 +17,26 @@ class ServerMessage extends AbstractServerMessage {
 	protected $channels;
 	protected $message;
 
-	public function __construct($rawBinaryMessage) {
-		$this->raw = $rawBinaryMessage;
-		$this->channels = new ChannelCollection();
+	public function __construct(ChannelCollection $channels) {
+		$this->channels = $channels;
 	}
 
 	/**
-	 * @return @return \TrafficCophp\Channel\ChannelCollection
+	 * @return \SplObjectStorage
 	 */
 	public function getAddressedChannels() {
-		$this->parseIfNeccessary();
-		return $this->channels;
-	}
-
-	public function getLength() {
-		return strlen($this->raw);
+		$this->checkParsed();
+		return $this->channels->getChannels();
 	}
 
 	public function getMessage() {
-		$this->parseIfNeccessary();
+		$this->checkParsed();
 		return $this->message;
 	}
 
-	public function getProtokollString() {
-		return $this->raw;
-	}
-
-	protected function parseIfNeccessary() {
+	protected function checkParsed() {
 		if (!$this->isParsed()) {
-			$this->parse();
+			throw new \RuntimeException('You have to call parse() before accessing the attributes');
 		}
 	}
 
@@ -54,8 +44,8 @@ class ServerMessage extends AbstractServerMessage {
 		return $this->parsed;
 	}
 
-	protected function parse() {
-		$buffer = new Buffer($this->raw);
+	public function parse($raw) {
+		$buffer = new Buffer($raw);
 		$channelLength = $buffer->readInt32BE(0);
 		$channelList = $buffer->read(4, $channelLength);
 		foreach (explode(',', $channelList) as $channelName) {

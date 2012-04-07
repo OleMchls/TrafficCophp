@@ -4,6 +4,7 @@ namespace TrafficCophp\Subscriber;
 
 use TrafficCophp\Network\AbstractTransport;
 use TrafficCophp\Message\AbstractSubscribeMessage;
+use TrafficCophp\Message\AbstractServerMessage;
 
 /**
  * Description of AbstractSubscriber
@@ -11,9 +12,7 @@ use TrafficCophp\Message\AbstractSubscribeMessage;
  * @author ole
  */
 abstract class AbstractSubscriber {
-
 	abstract public function __construct(AbstractTransport $transport);
 	abstract public function subscribe(AbstractSubscribeMessage $channels);
-	abstract public function receive();
-
+	abstract public function receive(AbstractServerMessage $message);
 }
