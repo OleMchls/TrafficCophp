@@ -15,4 +15,8 @@ class SocketTransportTest extends \PHPUnit_Framework_TestCase {
 		$this->markTestSkipped('Cant test socket_write()');
 	}
 
+	public function testReceive() {
+		$this->markTestSkipped('Cant test socket_read()');
+	}
+
 }
