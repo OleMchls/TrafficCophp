@@ -30,8 +30,8 @@ class Subscriber extends AbstractSubscriber {
 		if (!$this->isRegistered()) {
 			throw new NoSubscriptionException('Youre not subscribed on a channel!');
 		}
-		$messagelength = $this->transport->receive(4);
-		$message->parse($this->transport->receive($messagelength - 4));
+		$buffer = new Buffer($this->transport->receive(4));
+		$message->parse($this->transport->receive($buffer->readInt32BE(0)));
 		return $message;
 	}
 
