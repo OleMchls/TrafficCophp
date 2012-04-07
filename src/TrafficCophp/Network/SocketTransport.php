@@ -17,6 +17,9 @@ class SocketTransport extends AbstractTransport {
 	}
 
 	public function receive($bytes) {
+		if (!$this->isConnected()) {
+			$this->connect();
+		}
 		return socket_read($this->resource, $bytes, PHP_BINARY_READ);
 	}
 
