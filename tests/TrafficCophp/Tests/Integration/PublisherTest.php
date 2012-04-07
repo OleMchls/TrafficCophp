@@ -7,11 +7,6 @@ use TrafficCophp\Publisher\Publisher;
 use TrafficCophp\Message\PublishMessage;
 use TrafficCophp\Channel\Channel;
 
-/**
- * Description of PublisherTest
- *
- * @author ole
- */
 class PublisherTest extends \PHPUnit_Framework_TestCase {
 
 	public function testPublish() {
