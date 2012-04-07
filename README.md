@@ -20,7 +20,7 @@ Installation should be done via [composer](http://packagist.org/).
 
 ## Example
 
-You should have a llok into the examples folder.
+You should have a look into the examples folder.
 A simple usage example could look like this
 
 ```php
