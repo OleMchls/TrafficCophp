@@ -7,7 +7,7 @@ use TrafficCophp\Message\SubscribeMessage;
 
 use TrafficCophp\ByteBuffer\Buffer;
 
-class SubsriceMessageTest extends \PHPUnit_Framework_TestCase {
+class SubscribeMessageTest extends \PHPUnit_Framework_TestCase {
 
 	protected function getChannelMock($name) {
 		$mock = $this->getMockBuilder('TrafficCophp\\Channel\\Channel')->setConstructorArgs(array($name))->getMock();
