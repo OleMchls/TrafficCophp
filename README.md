@@ -1,6 +1,6 @@
 # Official PHP client for TrafficCop
 
-build status to come
+[![Build Status](https://secure.travis-ci.org/nesQuick/TrafficCophp.png?branch=master)](http://travis-ci.org/nesQuick/TrafficCophp)
 
 This is the official PHP client for [TrafficCop](https://github.com/santosh79/traffic_cop/).
 It provides a very simple client for basic usage but offers also very OO-Style usage.
